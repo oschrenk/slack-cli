@@ -136,8 +136,8 @@ while (( "$#" )); do
           [ -n "${1}" ] && [ -z "${minutes}" ] && minutes=${1}
         ;;
         statusedit)
+          [ -n "${1}" ] && [ -n "${text}" ] && [ -n "${emoji}" ] && [ -z "${expiration}" ] && expiration=${1}
           [ -n "${1}" ] && [ -n "${text}" ] && [ -z "${emoji}" ] && emoji=${1}
-          [ -n "${1}" ] && [ -n "${text}" ] && [ -z "${expiration}" ] && expiration=${1}
           [ -n "${1}" ] && [ -z "${text}" ] && text=${1}
         ;;
         reminderadd)
@@ -220,7 +220,7 @@ case "${cmd}${sub}" in
   statusedit)
     [ -z "${text}" ] && read -e -p 'Enter text (e.g. lunch): ' text
     [ -z "${emoji}" ] && read -e -p 'Enter emoji (e.g. :hamburger:): ' emoji
-    [ -z "${expiration}" ] && read -e -p 'Enter timestamp (e.g. 1405894322): ' expiration
+    [ -z "${expiration}" ] && read -e -p 'Enter expiration timestamp (e.g. 1405894322): ' expiration
   ;;
 esac
 
